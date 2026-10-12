@@ -1,0 +1,272 @@
+/** Shopify CDN: Minification failed
+
+Line 163:22 Unexpected "{"
+
+**/
+@media screen and (max-width: 1429px) {
+  .element-margin-top {
+    margin-top: 4rem;
+  }
+  .shopify-policy__title h1,
+  .theme_main_heading{
+    font-size: max(27px, 16px);
+  }
+  .header__heading-link .h2 {
+    font-size: 16px;
+  }
+  .header .visually-hiddenn {
+    display: none;
+  }
+  .swiper-pagination {
+    padding: 0 30px;
+  }
+  .title_bottom_margin {
+    margin-bottom: 40px;
+  }
+  .header__icons {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .page-width {
+    padding: 0px 1.5rem;
+  }
+  .main-wishlist-page {
+    padding: 0px 1.5rem;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .shopify-policy__title h1,
+  .theme_main_heading{
+    font-size: max(24px, 16px);
+  }
+  .title_bottom_margin {
+    margin-bottom: 35px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .shopify-policy__container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .main-wishlist-page .product-hover button {
+    top: 10px;
+    right: 10px;
+  }
+  .product-color-variant {
+    top: 10px;
+    right: 10px;
+  }
+  .card-wrapper .card--card .product-card-buttons {
+    bottom: 10px;
+    right: 10px;
+  }
+  .header__heading {
+    margin: 2px 0;
+  }
+  .desktop-preloader {
+    display: none;
+  }
+  .mobile-preloader {
+    display: block;
+  }
+  .card-wrapper.product-card-wrapper.side_position .quick-add__submit,
+  .wishlist-card-wrapper .quick-add__submit {
+    position: relative;
+    display: block;
+    margin: 1rem 0 0 0;
+    width: 100%;
+  }
+  .card-wrapper.product-card-wrapper:hover .card__heading,
+  .card-wrapper.product-card-wrapper:hover .card-information,
+  .card-wrapper.product-card-wrapper:hover .products_variant_wrapper,
+  .wishlist-card-wrapper:hover .card__heading,
+  .wishlist-card-wrapper:hover .card-information,
+  .wishlist-card-wrapper:hover .products_variant_wrapper {
+    opacity: 1;
+  }
+  .heading-img {
+    margin-bottom: 10px !important;
+  }
+  .blog .card__heading a{
+    font-size: 16px;
+  }
+  .element-margin-top {
+    margin-top: 3rem;
+  }
+  .product-grid-container .grid--1-col-desktop .card__inner {
+    width: 100%;
+    max-width: 100%;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    width: 30px!important;
+    height: 30px!important;
+  }
+  .swiper-button-next svg, .swiper-button-prev svg {
+    width: 10px!important;
+    height: 10px!important;
+  }
+  .featured_collection-slider .quick-add__submit, .featured_collection-slider .product-hover button {
+    padding: 0.5rem;
+  }
+  .card_product_quick-view .quick-add__submit{
+    min-width: 30px;
+    min-height: 30px;
+  }
+  .product-card-wrapper div#ui-countdown{
+    display: none;
+  }
+  .card--card .product-card-buttons,
+  .card--standard .product-card-buttons{
+    display: block;
+  }
+  .shopify-policy__title h1,
+  .theme_main_heading{
+    font-size: max(21px, 16px);
+  }
+  .theme_main_description{
+    font-size: max(12px, 14px);
+  }
+  .theme_main_subheading{
+    font-size: max(14px, 14px);
+  }
+  .header__heading-link .h2 {
+    font-size: 14px;
+  }
+  .title_bottom_margin {
+    margin-bottom: 30px;
+  }
+  .caption-with-letter-spacing {
+    font-size: 12px !important;
+    padding-bottom: 1rem;
+  }
+  .product_tile_size_holder {
+    margin-top: 1rem;
+  }
+  .product_tile_size_holder {
+    column-gap: 6px;
+  }
+  .product_tile_size_holder .color-swatch {
+    width: 15px;
+    height: 15px;
+  }
+  .swiper-pagination {
+    padding: 0 15px;
+  }
+}
+@media screen and (max-width: 989px) {
+  .header__icons {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .header__icon--account,
+  .header__icon--wishlist,
+  .header__icon--cart,{
+    padding-left: 15px;
+  }
+  .header__icon--crimson-club {
+    display: none !important;
+  }
+  .count-bubble,
+  .cart-count-bubble{
+    height: 14px;
+    width: 14px;
+    top: -2px;
+    right: -2px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .swiper-pagination {
+    margin: 5px 0;
+    bottom: 0 !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .row-product-slider .card {
+    flex-direction: column!important;
+  }
+  .blog .card__heading a{
+    font-size: 14px;
+  }
+  .element-margin-top {
+    margin-top: 2rem;
+  }
+  .header__icon--account,
+  .header__icon--wishlist,
+  .header__icon--cart{
+    padding-left: 10px;
+  }
+  .shopify-policy__title h1,
+  .theme_main_heading{
+    font-size: max(18px, 16px);
+  }
+  .title_bottom_margin {
+    margin-bottom: 25px;
+  }
+  .product-grid-container .grid--1-col-desktop .description_wrapper, .grid-setup-3 {
+    display: none;
+  }
+  .template-404 .theme_main_heading {
+    margin-bottom: 15px!important;
+  }
+  .product-grid-container .grid--1-col-desktop .card {
+    column-gap: 15px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .swiper-pagination-bullet {
+    margin: 0 2px !important;
+  }
+  .heading-img {
+    margin-bottom: 5px !important;
+  }
+  .title_bottom_margin {
+    margin-bottom: 20px;
+  }
+  .card-wrapper.side_position .card--card .product-hover, .card-wrapper.center_position .card--card .product-hover,
+  .card-wrapper.side_position .card--standard .product-hover,.card-wrapper.center_position .card--standard .product-hover{
+    row-gap: 3px;
+  }
+  .card-wrapper.bottom_position .card--card .product-hover,
+  .card-wrapper.bottom_position .card--standard .product-hover{
+    column-gap: 3px;
+  }
+  .card_product_quick-view .quick-add__submit{
+    min-width: 25px;
+    min-height: 25px;
+  }
+  .page-buttons {
+    flex-direction: column;
+    row-gap: 15px;
+  }
+  .shopify-policy__title h1,
+  .theme_main_heading{
+    font-size: max(15px, 16px);
+  }
+  .card-wrapper.bottom_position .card--card .product-card-buttons {
+    bottom: 5px;
+  }
+  .card-wrapper.bottom_position .card--standard .product-card-buttons {
+    bottom: 5px;
+  }
+  .badge {
+    font-size: 1.2rem;
+  }
+  .product-grid-container .grid--1-col-desktop .side_position .quick-add__submit{
+    max-width: 100%;
+  }
+  .button,
+  .shopify-challenge__button,
+  .customer button,
+  button.shopify-payment-button__button--unbranded {
+    min-height: calc(4rem + var(--buttons-border-width) * 2);
+  }
+  .quantity {
+    min-height: calc((var(--inputs-border-width) * 2) + 3.8rem);
+  }
+  .quantity__button {
+    width: calc(3.8rem / var(--font-body-scale));
+  }
+  .sr-headless-checkout{
+    height: 4rem;
+  }
+}

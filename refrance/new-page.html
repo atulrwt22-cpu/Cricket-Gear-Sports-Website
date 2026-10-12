@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sportz - Sports Website</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =========================================
+   SPORTS WEBSITE COLOR PALETTE
+========================================= */
+
+:root {
+
+    --primary: #12304A;
+    --secondary: #2F6F8F;
+
+    --green: #3FA66B;
+    --amber: #E8B04A;
+
+    --background: #F5F7F8;
+    --white: #FFFFFF;
+
+    --text: #263238;
+    --muted: #667781;
+
+    --border: #DDE3E7;
+
+    --success: #4C9A70;
+    --error: #D96C6C;
+}
+
+
+/* =========================================
+   GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.main-navbar {
+
+    background: var(--primary);
+
+    padding: 15px 0;
+}
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: white !important;
+}
+
+.logo-icon {
+
+    color: var(--green);
+
+    font-size: 32px;
+}
+
+.logo strong {
+
+    display: block;
+
+    font-size: 25px;
+
+    line-height: 22px;
+}
+
+.logo small {
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    color: #dbe5eb;
+}
+
+
+/* SEARCH */
+
+.search-box {
+
+    position: relative;
+
+    width: 45%;
+}
+
+.search-box input {
+
+    height: 44px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    padding-right: 55px;
+}
+
+.search-box button {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 0;
+
+    height: 44px;
+
+    width: 50px;
+
+    border: none;
+
+    background: var(--secondary);
+
+    color: white;
+
+    border-radius: 0 8px 8px 0;
+
+    font-size: 18px;
+}
+
+
+/* NAV LINKS */
+
+.nav-link {
+
+    color: white !important;
+
+    font-size: 14px;
+
+    margin-left: 15px;
+}
+
+.nav-link:hover {
+
+    color: var(--green) !important;
+}
+
+.nav-link i {
+
+    margin-right: 5px;
+}
+
+.cart-badge {
+
+    background: var(--green);
+
+    font-size: 10px;
+
+    padding: 2px 6px;
+
+    border-radius: 50%;
+}
+
+
+/* MOBILE TOGGLER */
+
+.navbar-toggler {
+
+    border: 1px solid white;
+
+    color: white;
+}
+
+.navbar-toggler i {
+
+    color: white;
+
+    font-size: 25px;
+}
+
+
+/* =========================================
+   CATEGORY NAV
+========================================= */
+
+.category-navbar {
+
+    background: var(--primary);
+
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.category-menu {
+
+    list-style: none;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow-x: auto;
+}
+
+.category-menu li a {
+
+    display: block;
+
+    color: white;
+
+    padding: 13px 18px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.category-menu li a:hover,
+.category-menu li a.active {
+
+    color: var(--green);
+
+    border-bottom: 3px solid var(--green);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero-section {
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(18,48,74,.98),
+            rgba(18,48,74,.65)
+        ),
+
+        url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+
+    background-position: center;
+
+    min-height: 520px;
+
+    display: flex;
+
+    align-items: center;
+
+    color: white;
+
+    overflow: hidden;
+}
+
+.hero-content {
+
+    padding: 60px 0;
+}
+
+.hero-small {
+
+    color: var(--green);
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    font-size: 13px;
+}
+
+.hero-content h1 {
+
+    font-size: clamp(42px, 6vw, 75px);
+
+    line-height: .95;
+
+    font-weight: 800;
+
+    margin: 15px 0;
+}
+
+.hero-content h1 span {
+
+    color: var(--green);
+}
+
+.hero-content p {
+
+    color: #e2e9ed;
+
+    font-size: 18px;
+
+    max-width: 450px;
+}
+
+
+/* BUTTON */
+
+.btn-green {
+
+    background: var(--green);
+
+    border: 2px solid var(--green);
+
+    color: white;
+
+    font-weight: 600;
+
+    padding: 11px 22px;
+
+    border-radius: 5px;
+}
+
+.btn-green:hover {
+
+    background: #328b5a;
+
+    border-color: #328b5a;
+
+    color: white;
+}
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+/* HERO IMAGE */
+
+.hero-image {
+
+    position: relative;
+
+    margin-top: 40px;
+}
+
+.hero-image img {
+
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.3);
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+
+    margin-top: -35px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.feature-box {
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    padding: 18px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    box-shadow: 0 5px 20px rgba(18,48,74,.08);
+}
+
+.feature-box i {
+
+    font-size: 28px;
+
+    color: var(--green);
+}
+
+.feature-box strong,
+.feature-box small {
+
+    display: block;
+}
+
+.feature-box strong {
+
+    font-size: 14px;
+}
+
+.feature-box small {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.categories-section,
+.products-section {
+
+    padding: 80px 0 40px;
+}
+
+.products-section {
+
+    padding-top: 50px;
+}
+
+.section-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 30px;
+}
+
+.section-heading span {
+
+    color: var(--green);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+
+    margin: 5px 0 0;
+
+    font-size: 30px;
+
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+.section-heading a {
+
+    color: var(--secondary);
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   CATEGORY CARDS
+========================================= */
+
+.category-card {
+
+    display: block;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    transition: .3s;
+}
+
+.category-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 25px rgba(18,48,74,.12);
+}
+
+.category-img {
+
+    height: 180px;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+}
+
+.category-img img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .4s;
+}
+
+.category-card:hover img {
+
+    transform: scale(1.08);
+}
+
+.category-card h5 {
+
+    color: var(--text);
+
+    text-align: center;
+
+    margin: 14px 0 8px;
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   PRODUCT CARD
+========================================= */
+
+.product-card {
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    transition: .3s;
+
+    height: 100%;
+}
+
+.product-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 30px rgba(18,48,74,.12);
+}
+
+.product-image {
+
+    height: 240px;
+
+    background: #eef2f4;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.product-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* BADGES */
+
+.offer,
+.stock,
+.best,
+.new {
+
+    position: absolute;
+
+    top: 12px;
+
+    left: 12px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    z-index: 2;
+}
+
+.offer {
+
+    background: #D96C6C;
+
+    color: white;
+}
+
+.stock {
+
+    background: var(--green);
+
+    color: white;
+}
+
+.best {
+
+    background: var(--amber);
+
+    color: #263238;
+}
+
+.new {
+
+    background: var(--secondary);
+
+    color: white;
+}
+
+
+/* WISHLIST */
+
+.wishlist {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--primary);
+
+    z-index: 2;
+}
+
+
+/* PRODUCT INFO */
+
+.product-info {
+
+    padding: 18px;
+}
+
+.product-info small {
+
+    color: var(--secondary);
+
+    font-weight: 700;
+
+    font-size: 10px;
+}
+
+.product-info h5 {
+
+    color: var(--text);
+
+    font-size: 16px;
+
+    margin: 7px 0 10px;
+}
+
+.price {
+
+    color: var(--primary);
+
+    font-weight: 800;
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+}
+
+.price del {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-left: 5px;
+}
+
+
+/* ADD CART */
+
+.add-cart {
+
+    width: 100%;
+
+    border: 1px solid var(--green);
+
+    background: transparent;
+
+    color: var(--green);
+
+    padding: 9px;
+
+    border-radius: 5px;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.add-cart:hover {
+
+    background: var(--green);
+
+    color: white;
+}
+
+
+/* =========================================
+   OFFER
+========================================= */
+
+.offer-section {
+
+    padding: 50px 0 80px;
+}
+
+.offer-box {
+
+    background: var(--primary);
+
+    border-radius: 12px;
+
+    padding: 40px;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.offer-box span {
+
+    color: var(--green);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.offer-box h2 {
+
+    font-size: 35px;
+
+    margin: 8px 0;
+}
+
+.offer-box h2 strong {
+
+    color: var(--amber);
+}
+
+.offer-box p {
+
+    color: #cbd7de;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    background: var(--primary);
+
+    color: white;
+
+    padding: 60px 0 20px;
+}
+
+.footer-logo {
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    color: white;
+
+    margin-bottom: 15px;
+}
+
+.footer-logo i {
+
+    color: var(--green);
+}
+
+footer p {
+
+    color: #b8c6cf;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+footer h5 {
+
+    font-size: 16px;
+
+    margin-bottom: 18px;
+}
+
+footer a {
+
+    display: block;
+
+    color: #b8c6cf;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+footer a:hover {
+
+    color: var(--green);
+}
+
+
+/* NEWSLETTER */
+
+.newsletter {
+
+    display: flex;
+
+    background: white;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+}
+
+.newsletter input {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 12px;
+
+    outline: none;
+}
+
+.newsletter button {
+
+    width: 50px;
+
+    border: none;
+
+    background: var(--green);
+
+    color: white;
+}
+
+footer hr {
+
+    border-color: rgba(255,255,255,.15);
+
+    margin-top: 40px;
+}
+
+.copyright {
+
+    text-align: center;
+
+    margin: 0 !important;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 991px) {
+
+    .search-box {
+
+        width: 100%;
+
+        margin: 20px 0;
+    }
+
+    .nav-link {
+
+        margin-left: 0;
+
+        padding: 10px 0;
+    }
+
+    .hero-section {
+
+        min-height: auto;
+
+        padding: 50px 0;
+    }
+
+    .hero-image {
+
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+
+        height: 300px;
+    }
+
+    .features {
+
+        margin-top: 20px;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .category-menu {
+
+        justify-content: flex-start;
+    }
+
+    .hero-content {
+
+        padding: 20px 0;
+    }
+
+    .hero-content h1 {
+
+        font-size: 48px;
+    }
+
+    .hero-image img {
+
+        height: 250px;
+    }
+
+    .categories-section,
+    .products-section {
+
+        padding: 55px 0 25px;
+    }
+
+    .section-heading h2 {
+
+        font-size: 24px;
+    }
+
+    .category-img {
+
+        height: 140px;
+    }
+
+    .product-image {
+
+        height: 190px;
+    }
+
+    .product-info {
+
+        padding: 12px;
+    }
+
+    .product-info h5 {
+
+        font-size: 14px;
+    }
+
+    .offer-box {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        padding: 30px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .logo strong {
+
+        font-size: 20px;
+    }
+
+    .logo-icon {
+
+        font-size: 25px;
+    }
+
+    .hero-content h1 {
+
+        font-size: 40px;
+    }
+
+    .hero-content p {
+
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .feature-box {
+
+        padding: 12px;
+
+    }
+
+    .feature-box i {
+
+        font-size: 22px;
+    }
+
+    .feature-box strong {
+
+        font-size: 11px;
+    }
+
+    .feature-box small {
+
+        font-size: 9px;
+    }
+
+    .product-image {
+
+        height: 160px;
+    }
+
+    .product-info h5 {
+
+        font-size: 13px;
+    }
+
+    .price {
+
+        font-size: 15px;
+    }
+
+    .add-cart {
+
+        font-size: 12px;
+
+        padding: 8px 4px;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar navbar-expand-lg main-navbar">
+
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand logo" href="#">
+
+                <span class="logo-icon">
+                    <i class="bi bi-person-running"></i>
+                </span>
+
+                <div>
+                    <strong>SPORTZ</strong>
+                    <small>GEAR UP. PLAY HARD.</small>
+                </div>
+
+            </a>
+
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainMenu">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <!-- Navbar Menu -->
+            <div class="collapse navbar-collapse" id="mainMenu">
+
+                <!-- Search -->
+                <div class="search-box mx-lg-auto">
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search for products...">
+
+                    <button type="button">
+                        <i class="bi bi-search"></i>
+                    </button>
+
+                </div>
+
+
+                <!-- Right Menu -->
+                <ul class="navbar-nav ms-lg-4">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-heart"></i>
+                            Wishlist
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">
+
+                            <i class="bi bi-cart3"></i>
+                            Cart
+
+                            <span class="cart-badge">
+                                0
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= CATEGORY NAVIGATION ================= -->
+
+    <div class="category-navbar">
+
+        <div class="container">
+
+            <ul class="category-menu">
+
+                <li>
+                    <a class="active" href="#">
+                        HOME
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        CRICKET
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        FOOTBALL
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        RUNNING
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        GYM
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        ACCESSORIES
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        OFFERS
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        BLOG
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        CONTACT
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero-section">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+
+                <!-- Hero Text -->
+
+                <div class="col-lg-6">
+
+                    <div class="hero-content">
+
+                        <span class="hero-small">
+                            PREMIUM SPORTS EQUIPMENT
+                        </span>
+
+
+                        <h1>
+
+                            GEAR UP.
+
+                            <br>
+
+                            <span>
+                                PLAY HARD.
+                            </span>
+
+                        </h1>
+
+
+                        <p>
+                            High performance sports gear
+                            for every champion.
+                        </p>
+
+
+                        <div class="hero-buttons">
+
+                            <a href="#" class="btn btn-green">
+
+                                SHOP NOW
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </a>
+
+
+                            <a href="#" class="btn btn-outline-light">
+
+                                EXPLORE
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Hero Image -->
+
+                <div class="col-lg-6">
+
+                    <div class="hero-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=80"
+                            alt="Cricket Player">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="container">
+
+            <div class="row g-3">
+
+
+                <!-- Feature 1 -->
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="feature-box">
+
+                        <i class="bi bi-shield-check"></i>
+
+                        <div>
+
+                            <strong>
+                                100% Original
+                            </strong>
+
+                            <small>
+                                Products
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Feature 2 -->
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="feature-box">
+
+                        <i class="bi bi-truck"></i>
+
+                        <div>
+
+                            <strong>
+                                Fast & Secure
+                            </strong>
+
+                            <small>
+                                Delivery
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Feature 3 -->
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="feature-box">
+
+                        <i class="bi bi-arrow-counterclockwise"></i>
+
+                        <div>
+
+                            <strong>
+                                Easy Returns
+                            </strong>
+
+                            <small>
+                                7 Days Policy
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Feature 4 -->
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="feature-box">
+
+                        <i class="bi bi-award"></i>
+
+                        <div>
+
+                            <strong>
+                                Best Price
+                            </strong>
+
+                            <small>
+                                Guarantee
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= TOP CATEGORIES ================= -->
+
+    <section class="categories-section">
+
+        <div class="container">
+
+
+            <!-- Section Heading -->
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span>
+                        EXPLORE
+                    </span>
+
+                    <h2>
+                        Top Categories
+                    </h2>
+
+                </div>
+
+
+                <a href="#">
+                    View All →
+                </a>
+
+            </div>
+
+
+
+            <!-- Category Cards -->
+
+            <div class="row g-4">
+
+
+                <!-- Cricket -->
+
+                <div class="col-6 col-md-3">
+
+                    <a href="#" class="category-card">
+
+                        <div class="category-img">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=500&q=80"
+                                alt="Cricket">
+
+                        </div>
+
+                        <h5>
+                            Cricket
+                        </h5>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- Football -->
+
+                <div class="col-6 col-md-3">
+
+                    <a href="#" class="category-card">
+
+                        <div class="category-img">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=500&q=80"
+                                alt="Football">
+
+                        </div>
+
+                        <h5>
+                            Football
+                        </h5>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- Running -->
+
+                <div class="col-6 col-md-3">
+
+                    <a href="#" class="category-card">
+
+                        <div class="category-img">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=500&q=80"
+                                alt="Running">
+
+                        </div>
+
+                        <h5>
+                            Running
+                        </h5>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- Gym -->
+
+                <div class="col-6 col-md-3">
+
+                    <a href="#" class="category-card">
+
+                        <div class="category-img">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=80"
+                                alt="Gym">
+
+                        </div>
+
+                        <h5>
+                            Gym
+                        </h5>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FEATURED PRODUCTS ================= -->
+
+    <section class="products-section">
+
+        <div class="container">
+
+
+            <!-- Heading -->
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span>
+                        SHOP NOW
+                    </span>
+
+                    <h2>
+                        Featured Products
+                    </h2>
+
+                </div>
+
+
+                <a href="#">
+                    View All →
+                </a>
+
+            </div>
+
+
+
+            <!-- Products -->
+
+            <div class="row g-4">
+
+
+                <!-- PRODUCT 1 -->
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="product-card">
+
+                        <div class="product-image">
+
+                            <span class="offer">
+                                20% OFF
+                            </span>
+
+
+                            <img
+                                src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=600&q=80"
+                                alt="Cricket Bat">
+
+
+                            <button class="wishlist">
+
+                                <i class="bi bi-heart"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <small>
+                                CRICKET
+                            </small>
+
+
+                            <h5>
+                                Professional Cricket Bat
+                            </h5>
+
+
+                            <div class="price">
+
+                                ₹2,499
+
+                                <del>
+                                    ₹3,099
+                                </del>
+
+                            </div>
+
+
+                            <button class="add-cart">
+
+                                <i class="bi bi-cart3"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 2 -->
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="product-card">
+
+                        <div class="product-image">
+
+                            <span class="stock">
+                                IN STOCK
+                            </span>
+
+
+                            <img
+                                src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=600&q=80"
+                                alt="Football">
+
+
+                            <button class="wishlist">
+
+                                <i class="bi bi-heart"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <small>
+                                FOOTBALL
+                            </small>
+
+
+                            <h5>
+                                Premium Match Football
+                            </h5>
+
+
+                            <div class="price">
+                                ₹1,299
+                            </div>
+
+
+                            <button class="add-cart">
+
+                                <i class="bi bi-cart3"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 3 -->
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="product-card">
+
+                        <div class="product-image">
+
+                            <span class="best">
+                                BEST SELLER
+                            </span>
+
+
+                            <img
+                                src="https://images.unsplash.com/photo-1554344728-77cf90d9ed26?auto=format&fit=crop&w=600&q=80"
+                                alt="Dumbbells">
+
+
+                            <button class="wishlist">
+
+                                <i class="bi bi-heart"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <small>
+                                GYM
+                            </small>
+
+
+                            <h5>
+                                Professional Dumbbells
+                            </h5>
+
+
+                            <div class="price">
+                                ₹1,899
+                            </div>
+
+
+                            <button class="add-cart">
+
+                                <i class="bi bi-cart3"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 4 -->
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="product-card">
+
+                        <div class="product-image">
+
+                            <span class="new">
+                                NEW ARRIVAL
+                            </span>
+
+
+                            <img
+                                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
+                                alt="Running Shoes">
+
+
+                            <button class="wishlist">
+
+                                <i class="bi bi-heart"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <small>
+                                RUNNING
+                            </small>
+
+
+                            <h5>
+                                Performance Running Shoes
+                            </h5>
+
+
+                            <div class="price">
+                                ₹2,999
+                            </div>
+
+
+                            <button class="add-cart">
+
+                                <i class="bi bi-cart3"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= OFFER SECTION ================= -->
+
+    <section class="offer-section">
+
+        <div class="container">
+
+            <div class="offer-box">
+
+
+                <div>
+
+                    <span>
+                        LIMITED TIME OFFER
+                    </span>
+
+
+                    <h2>
+
+                        Get up to
+
+                        <strong>
+                            40% OFF
+                        </strong>
+
+                    </h2>
+
+
+                    <p>
+                        Upgrade your sports gear today.
+                    </p>
+
+                </div>
+
+
+                <a href="#" class="btn btn-green">
+
+                    SHOP OFFERS
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="row g-4">
+
+
+                <!-- About -->
+
+                <div class="col-lg-4">
+
+                    <div class="footer-logo">
+
+                        <i class="bi bi-person-running"></i>
+
+                        SPORTZ
+
+                    </div>
+
+
+                    <p>
+                        High performance sports equipment
+                        for every athlete and sports lover.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Quick Links -->
+
+                <div class="col-6 col-lg-2">
+
+                    <h5>
+                        Quick Links
+                    </h5>
+
+
+                    <a href="#">
+                        Home
+                    </a>
+
+                    <a href="#">
+                        About Us
+                    </a>
+
+                    <a href="#">
+                        Products
+                    </a>
+
+                    <a href="#">
+                        Contact
+                    </a>
+
+                </div>
+
+
+
+                <!-- Categories -->
+
+                <div class="col-6 col-lg-2">
+
+                    <h5>
+                        Categories
+                    </h5>
+
+
+                    <a href="#">
+                        Cricket
+                    </a>
+
+                    <a href="#">
+                        Football
+                    </a>
+
+                    <a href="#">
+                        Running
+                    </a>
+
+                    <a href="#">
+                        Gym
+                    </a>
+
+                </div>
+
+
+
+                <!-- Newsletter -->
+
+                <div class="col-lg-4">
+
+                    <h5>
+                        Newsletter
+                    </h5>
+
+
+                    <p>
+                        Subscribe for latest offers.
+                    </p>
+
+
+                    <div class="newsletter">
+
+                        <input
+                            type="email"
+                            placeholder="Your email">
+
+
+                        <button type="button">
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <hr>
+
+
+            <p class="copyright">
+
+                © 2026 SPORTZ.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= BOOTSTRAP JS ================= -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+
+</html>

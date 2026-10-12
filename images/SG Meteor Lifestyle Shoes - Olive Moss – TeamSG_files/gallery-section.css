@@ -1,0 +1,12 @@
+.main-gallery-post-section .gallery_img{
+  border-radius: var(--media-radius);
+  overflow: hidden;
+}
+.main-gallery-post-section .gallery_img .media svg,
+.main-gallery-post-section .gallery_img .media img{
+  transition: all .5s ease;
+}
+.main-gallery-post-section .gallery_img .media:hover svg,
+.main-gallery-post-section .gallery_img .media:hover img{
+  scale: 1.1;
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shopfolk — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1B2A2E; --paper:#F2F5F1; --line:#DBE2DC; --card:#FFFFFF;
+  --marigold:#E8A33D; --teal:#2F6F62; --coral:#E1573F; --muted:#66746E;
+  --radius:14px; --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --ink:#EDEFEA; --paper:#161E1C; --line:#2B3532; --card:#1E2926; --muted:#9AA79F; }
+}
+:root[data-theme="dark"]{ --ink:#EDEFEA; --paper:#161E1C; --line:#2B3532; --card:#1E2926; --muted:#9AA79F; }
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);height:100%}
+h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.15;font-weight:600}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* top switcher */
+.switcher{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);overflow-x:auto}
+.switcher .wrap{display:flex;gap:6px;padding:10px 24px}
+.switcher button{white-space:nowrap;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px/1 var(--sans);padding:9px 16px;border-radius:999px;cursor:pointer}
+.switcher button.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* site chrome */
+.topbar{background:var(--ink);color:var(--paper);font-size:12px;text-align:center;padding:7px 0}
+header.site{border-bottom:1px solid var(--line);padding:16px 0}
+header.site .wrap{display:flex;align-items:center;gap:28px}
+.logo{font-family:var(--serif);font-size:22px;font-weight:700;flex-shrink:0}
+.searchbar{flex:1;display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;padding:9px 14px;color:var(--muted);font-size:14px;background:var(--card)}
+.navicons{display:flex;gap:18px;font-size:13px;font-weight:500;flex-shrink:0}
+nav.cats{border-bottom:1px solid var(--line);font-size:13px;font-weight:500}
+nav.cats .wrap{display:flex;gap:26px;padding:11px 24px;overflow-x:auto}
+nav.cats a{white-space:nowrap;color:var(--muted)}
+
+footer.site{margin-top:70px;border-top:1px solid var(--line);padding:44px 0 26px;font-size:13px;color:var(--muted)}
+footer.site .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+footer.site h4{font-family:var(--sans);font-size:12px;color:var(--ink);margin-bottom:10px}
+footer.site p,footer.site a{display:block;margin-bottom:7px}
+
+.btn{display:inline-block;border-radius:9px;padding:12px 22px;font:600 14px/1 var(--sans);cursor:pointer;border:1px solid transparent}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-outline{background:transparent;border-color:var(--ink);color:var(--ink)}
+.tag{display:inline-block;background:var(--marigold);color:#2B1E00;font:700 11px/1 var(--sans);padding:4px 8px;border-radius:6px}
+.tag-sale{background:var(--coral);color:#fff}
+.price{font-family:var(--serif);font-weight:700;font-size:18px}
+.was{color:var(--muted);text-decoration:line-through;font-size:13px;margin-left:6px}
+
+/* product card */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.swatch{aspect-ratio:4/5;background:linear-gradient(135deg,var(--sw1),var(--sw2))}
+.p-name{font-weight:600;font-size:14px;margin:12px 14px 2px}
+.p-meta{padding:0 14px 14px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+
+section{padding:56px 0}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px}
+.eyebrow{color:var(--muted);font-size:13px}
+
+/* page-specific */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:60px 0}
+.hero .art{aspect-ratio:1/1;border-radius:20px;background:linear-gradient(155deg,var(--teal),#12332C)}
+.hero h1{font-size:44px;max-width:9ch}
+@media(max-width:800px){.hero{grid-template-columns:1fr}}
+
+.layout-side{display:grid;grid-template-columns:230px 1fr;gap:32px;align-items:start}
+@media(max-width:800px){.layout-side{grid-template-columns:1fr}}
+.filter-group{margin-bottom:22px;font-size:13px}
+.filter-group h4{margin:0 0 8px;font-size:13px}
+.filter-group label{display:block;margin-bottom:7px;color:var(--muted)}
+
+.crumb{font-size:12px;color:var(--muted);margin-bottom:14px}
+
+.pd-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+@media(max-width:800px){.pd-grid{grid-template-columns:1fr}}
+.pd-thumbs{display:flex;gap:10px;margin-top:10px}
+.pd-thumbs .swatch{width:64px;height:72px;border-radius:8px;aspect-ratio:auto}
+.pd-main.swatch{aspect-ratio:1/1.05;border-radius:16px}
+.opt-row{display:flex;gap:8px;margin:8px 0 18px}
+.opt{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer}
+.opt.sel{border-color:var(--ink);border-width:2px}
+
+.cart-row{display:grid;grid-template-columns:74px 1fr auto auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.cart-row .swatch{aspect-ratio:auto;height:74px;width:74px;border-radius:10px}
+.qty{border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:13px}
+.summary{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.summary .row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:10px;color:var(--muted)}
+.summary .row.total{color:var(--ink);font-weight:700;font-family:var(--serif);font-size:17px;border-top:1px solid var(--line);padding-top:12px}
+.cart-layout{display:grid;grid-template-columns:1fr 340px;gap:36px}
+@media(max-width:800px){.cart-layout{grid-template-columns:1fr}}
+
+.steps{display:flex;gap:0;margin-bottom:36px;font-size:13px;font-weight:600}
+.steps .step{flex:1;text-align:center;padding-bottom:12px;border-bottom:3px solid var(--line);color:var(--muted)}
+.steps .step.on{border-color:var(--teal);color:var(--ink)}
+.form-field{margin-bottom:14px}
+.form-field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
+.form-field input{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink);font:14px var(--sans)}
+.pay-opt{border:1px solid var(--line);border-radius:10px;padding:13px 16px;margin-bottom:10px;font-size:14px;display:flex;justify-content:space-between}
+
+.auth-wrap{max-width:400px;margin:60px auto;padding:36px;background:var(--card);border:1px solid var(--line);border-radius:18px}
+.auth-wrap h2{margin-bottom:6px}
+.auth-wrap p.sub{color:var(--muted);font-size:14px;margin:0 0 24px}
+.divider{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;margin:16px 0}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.chk{font-size:12px;color:var(--muted);display:flex;gap:7px;align-items:center;margin:10px 0}
+
+.page{display:none}
+.page.active{display:block}
+
+/* category banner */
+.cat-banner{aspect-ratio:5/1;border-radius:16px;background:linear-gradient(120deg,var(--marigold),#12332C);margin-bottom:28px}
+@media(max-width:800px){.cat-banner{aspect-ratio:2/1}}
+
+/* order tracking */
+.track-timeline{display:flex;justify-content:space-between;margin:36px 0;position:relative}
+.track-timeline::before{content:"";position:absolute;top:11px;left:5%;right:5%;height:2px;background:var(--line);z-index:0}
+.track-step{flex:1;text-align:center;position:relative;z-index:1;font-size:12px;color:var(--muted)}
+.track-dot{width:24px;height:24px;border-radius:50%;background:var(--card);border:2px solid var(--line);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:11px}
+.track-step.done .track-dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.track-step.done{color:var(--ink);font-weight:600}
+
+/* account */
+.acc-layout{display:grid;grid-template-columns:220px 1fr;gap:32px}
+@media(max-width:800px){.acc-layout{grid-template-columns:1fr}}
+.acc-nav a{display:block;padding:10px 14px;border-radius:9px;font-size:14px;margin-bottom:4px;color:var(--muted)}
+.acc-nav a.on{background:var(--ink);color:var(--paper);font-weight:600}
+.order-card{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.status-pill{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--teal);color:#fff}
+
+/* admin */
+.admin-shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.admin-side{background:var(--ink);color:var(--paper);padding:24px 16px}
+.admin-side .logo{color:var(--paper);margin-bottom:26px}
+.admin-side a{display:block;padding:9px 12px;border-radius:8px;font-size:13px;margin-bottom:2px;color:#C9D2CC}
+.admin-side a.on{background:rgba(255,255,255,.12);color:#fff;font-weight:600}
+.admin-main{padding:26px 30px;background:var(--paper)}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:26px}
+@media(max-width:800px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.admin-shell{grid-template-columns:1fr}.admin-side{display:none}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.kpi .v{font-family:var(--serif);font-size:24px;font-weight:700}
+.kpi .l{font-size:12px;color:var(--muted)}
+table.admin-t{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+table.admin-t th{text-align:left;background:var(--paper);padding:11px 14px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--line)}
+table.admin-t td{padding:11px 14px;border-bottom:1px solid var(--line)}
+.dot-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600}
+.dot-status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal)}
+</style>
+</head>
+<body>
+
+<div class="switcher"><div class="wrap" id="tabs"></div></div>
+
+<!-- ============ HOME ============ -->
+<div class="page active" id="page-home">
+  <div class="topbar">Free shipping over ₹1,999 · New season arrivals are live</div>
+  <header class="site"><div class="wrap">
+    <div class="logo">Shopfolk</div>
+    <div class="searchbar">Search for products, brands and more…</div>
+    <div class="navicons"><span>Login</span><span>Wishlist</span><span>Cart (3)</span></div>
+  </div></header>
+  <nav class="cats"><div class="wrap">
+    <a>Fashion</a><a>Electronics</a><a>Sports</a><a>Accessories</a><a>Home &amp; Living</a><a>Sale</a>
+  </div></nav>
+
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow">Autumn / Winter 2026</span>
+      <h1>Gear built for the days you actually live in.</h1>
+      <p style="color:var(--muted);max-width:42ch;margin:16px 0 24px">Fashion, tech and sport essentials, chosen for how they hold up — not just how they photograph.</p>
+      <span class="btn btn-primary" onclick="go('shop')">Shop the edit</span>
+    </div>
+    <div class="art"></div>
+  </div>
+
+  <div class="wrap"><section style="padding-top:0">
+    <div class="section-head"><h2>Trending now</h2><a onclick="go('shop')" style="cursor:pointer;font-size:13px">View all →</a></div>
+    <div class="grid" id="home-grid"></div>
+  </section></div>
+
+  <div class="wrap"><section style="padding-top:0">
+    <div class="section-head"><h2>Shop by category</h2></div>
+    <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+      <div class="card"><div class="swatch" style="--sw1:#E8A33D;--sw2:#B97B1F;aspect-ratio:1/1"></div><div class="p-name">Fashion</div></div>
+      <div class="card"><div class="swatch" style="--sw1:#2F6F62;--sw2:#12332C;aspect-ratio:1/1"></div><div class="p-name">Electronics</div></div>
+      <div class="card"><div class="swatch" style="--sw1:#E1573F;--sw2:#8F2F1F;aspect-ratio:1/1"></div><div class="p-name">Sports</div></div>
+      <div class="card"><div class="swatch" style="--sw1:#6C7B74;--sw2:#3A443F;aspect-ratio:1/1"></div><div class="p-name">Accessories</div></div>
+    </div>
+  </section></div>
+
+  <footer class="site"><div class="wrap cols">
+    <div><div class="logo" style="font-size:18px;margin-bottom:10px">Shopfolk</div><p>Considered goods for everyday life, shipped across India.</p></div>
+    <div><h4>Shop</h4><a>New arrivals</a><a>Best sellers</a><a>Sale</a></div>
+    <div><h4>Support</h4><a>Track order</a><a>Returns</a><a>Contact us</a></div>
+    <div><h4>Company</h4><a>About</a><a>Careers</a><a>Privacy policy</a></div>
+  </div></footer>
+</div>
+
+<!-- ============ SHOP ============ -->
+<div class="page" id="page-shop">
+  <header class="site"><div class="wrap">
+    <div class="logo">Shopfolk</div><div class="searchbar">Search…</div>
+    <div class="navicons"><span>Login</span><span>Wishlist</span><span>Cart (3)</span></div>
+  </div></header>
+  <div class="wrap" style="padding-top:24px">
+    <div class="crumb">Home / Shop / All products</div>
+    <div class="section-head"><h2>All products <span style="color:var(--muted);font-weight:400;font-size:15px">— 248 items</span></h2>
+      <span style="font-size:13px;border:1px solid var(--line);border-radius:8px;padding:8px 14px">Sort: Popularity ▾</span></div>
+    <div class="layout-side">
+      <aside>
+        <div class="filter-group"><h4>Category</h4><label>☐ Fashion</label><label>☐ Electronics</label><label>☐ Sports</label><label>☐ Accessories</label></div>
+        <div class="filter-group"><h4>Price</h4><label>☐ Under ₹1,000</label><label>☐ ₹1,000–₹3,000</label><label>☐ ₹3,000+</label></div>
+        <div class="filter-group"><h4>Brand</h4><label>☐ Northline</label><label>☐ Veyra</label><label>☐ Kaelo</label></div>
+        <div class="filter-group"><h4>Rating</h4><label>☐ 4★ &amp; up</label><label>☐ 3★ &amp; up</label></div>
+      </aside>
+      <div class="grid" id="shop-grid"></div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:8px;margin:36px 0;font-size:13px">
+      <span class="btn btn-outline">‹</span><span class="btn btn-primary">1</span><span class="btn btn-outline">2</span><span class="btn btn-outline">3</span><span class="btn btn-outline">›</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PRODUCT DETAIL ============ -->
+<div class="page" id="page-product">
+  <header class="site"><div class="wrap">
+    <div class="logo">Shopfolk</div><div class="searchbar">Search…</div>
+    <div class="navicons"><span>Login</span><span>Wishlist</span><span>Cart (3)</span></div>
+  </div></header>
+  <div class="wrap" style="padding-top:24px">
+    <div class="crumb">Home / Fashion / Outerwear / Ridge Wool Overcoat</div>
+    <div class="pd-grid">
+      <div>
+        <div class="swatch pd-main" style="--sw1:#6C7B74;--sw2:#2C332F"></div>
+        <div class="pd-thumbs">
+          <div class="swatch" style="--sw1:#6C7B74;--sw2:#2C332F"></div>
+          <div class="swatch" style="--sw1:#8A968F;--sw2:#3A443F"></div>
+          <div class="swatch" style="--sw1:#4E5951;--sw2:#20261F"></div>
+        </div>
+      </div>
+      <div>
+        <span class="tag">Bestseller</span>
+        <h1 style="font-size:26px;margin:12px 0 6px">Ridge Wool Overcoat</h1>
+        <div style="color:var(--muted);font-size:13px;margin-bottom:14px">★★★★☆ 4.3 (312 reviews)</div>
+        <div><span class="price">₹6,499</span><span class="was">₹8,999</span> <span class="tag tag-sale" style="margin-left:8px">28% off</span></div>
+        <p style="color:var(--muted);font-size:14px;margin:16px 0">Inclusive of all taxes. Free delivery by Wed, 1 Oct. 10-day easy returns.</p>
+        <div><strong style="font-size:13px">Color</strong>
+          <div class="opt-row">
+            <div class="opt sel" style="background:#2C332F"></div><div class="opt" style="background:#6C7B74"></div><div class="opt" style="background:#8F2F1F"></div>
+          </div></div>
+        <div><strong style="font-size:13px">Size</strong>
+          <div class="opt-row"><div class="opt">S</div><div class="opt sel">M</div><div class="opt">L</div><div class="opt">XL</div></div></div>
+        <div style="display:flex;gap:12px;margin:20px 0">
+          <span class="btn btn-outline" onclick="go('cart')">Add to cart</span>
+          <span class="btn btn-primary" onclick="go('checkout')">Buy now</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted)">Merino-blend wool, satin lining, horn-effect buttons. Model is 6'0" wearing size M.</p>
+      </div>
+    </div>
+    <section><h2 style="font-size:20px;margin-bottom:16px">You may also like</h2><div class="grid" id="related-grid"></div></section>
+  </div>
+</div>
+
+<!-- ============ CART ============ -->
+<div class="page" id="page-cart">
+  <header class="site"><div class="wrap">
+    <div class="logo">Shopfolk</div><div class="searchbar">Search…</div>
+    <div class="navicons"><span>Login</span><span>Wishlist</span><span>Cart (3)</span></div>
+  </div></header>
+  <div class="wrap" style="padding-top:24px 0 60px">
+    <h1 style="font-size:24px;margin-bottom:20px">Your cart <span style="color:var(--muted);font-weight:400;font-size:15px">(3 items)</span></h1>
+    <div class="cart-layout">
+      <div>
+        <div class="cart-row"><div class="swatch" style="--sw1:#6C7B74;--sw2:#2C332F"></div>
+          <div><div style="font-weight:600;font-size:14px">Ridge Wool Overcoat</div><div style="color:var(--muted);font-size:13px">Charcoal · Size M</div></div>
+          <div class="qty">− 1 +</div><div class="price">₹6,499</div></div>
+        <div class="cart-row"><div class="swatch" style="--sw1:#2F6F62;--sw2:#12332C"></div>
+          <div><div style="font-weight:600;font-size:14px">Aero Wireless Earbuds</div><div style="color:var(--muted);font-size:13px">Sage</div></div>
+          <div class="qty">− 1 +</div><div class="price">₹3,299</div></div>
+        <div class="cart-row"><div class="swatch" style="--sw1:#E8A33D;--sw2:#B97B1F"></div>
+          <div><div style="font-weight:600;font-size:14px">Trail Runner Sneakers</div><div style="color:var(--muted);font-size:13px">Amber · UK 9</div></div>
+          <div class="qty">− 1 +</div><div class="price">₹4,199</div></div>
+        <div style="margin-top:18px;display:flex;gap:10px"><input placeholder="Coupon code" style="flex:1;padding:11px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink)"><span class="btn btn-outline">Apply</span></div>
+      </div>
+      <div class="summary">
+        <div class="row"><span>Subtotal</span><span>₹13,997</span></div>
+        <div class="row"><span>Discount</span><span>−₹1,200</span></div>
+        <div class="row"><span>Delivery</span><span>Free</span></div>
+        <div class="row total"><span>Total</span><span>₹12,797</span></div>
+        <span class="btn btn-primary" style="width:100%;text-align:center;margin-top:14px" onclick="go('checkout')">Proceed to checkout</span>
+        <span class="btn btn-outline" style="width:100%;text-align:center;margin-top:10px" onclick="go('shop')">Continue shopping</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CHECKOUT ============ -->
+<div class="page" id="page-checkout">
+  <header class="site"><div class="wrap"><div class="logo">Shopfolk</div></div></header>
+  <div class="wrap" style="padding-top:24px 0 60px;max-width:900px">
+    <div class="steps">
+      <div class="step on">1 · Address</div><div class="step">2 · Delivery</div><div class="step">3 · Payment</div>
+    </div>
+    <div class="cart-layout" style="grid-template-columns:1fr 300px">
+      <div>
+        <h3 style="font-size:16px;margin-bottom:14px">Delivery address</h3>
+        <div class="form-field"><label>Full name</label><input value="Aarav Mehta"></div>
+        <div class="form-field"><label>Phone number</label><input value="+91 98765 43210"></div>
+        <div class="form-field"><label>Address</label><input value="4B, Rosewood Residency, Meerut, UP 250001"></div>
+        <span class="btn btn-outline">+ Add new address</span>
+        <h3 style="font-size:16px;margin:28px 0 14px">Payment method</h3>
+        <div class="pay-opt"><span>UPI</span><span>◉</span></div>
+        <div class="pay-opt"><span>Credit / Debit card</span><span>○</span></div>
+        <div class="pay-opt"><span>Cash on delivery</span><span>○</span></div>
+      </div>
+      <div class="summary">
+        <div class="row"><span>Subtotal</span><span>₹13,997</span></div>
+        <div class="row"><span>Discount</span><span>−₹1,200</span></div>
+        <div class="row"><span>Delivery</span><span>Free</span></div>
+        <div class="row total"><span>Total</span><span>₹12,797</span></div>
+        <span class="btn btn-primary" style="width:100%;text-align:center;margin-top:14px" onclick="go('success')">Place order</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ORDER SUCCESS ============ -->
+<div class="page" id="page-success">
+  <header class="site"><div class="wrap"><div class="logo">Shopfolk</div></div></header>
+  <div class="wrap" style="max-width:520px;text-align:center;padding:70px 24px">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 20px">✓</div>
+    <h2 style="font-size:24px">Order placed</h2>
+    <p style="color:var(--muted);margin:10px 0 26px">Order #SF-118402 · Arriving by Wed, 1 Oct<br>Paid via UPI — ₹12,797</p>
+    <div style="display:flex;gap:12px;justify-content:center">
+      <span class="btn btn-outline" onclick="go('shop')">Continue shopping</span>
+      <span class="btn btn-primary">Track order</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LOGIN ============ -->
+<div class="page" id="page-login">
+  <header class="site"><div class="wrap"><div class="logo">Shopfolk</div></div></header>
+  <div class="wrap"><div class="auth-wrap">
+    <h2>Welcome back</h2><p class="sub">Log in to track orders and access your wishlist.</p>
+    <div class="form-field"><label>Email or phone</label><input></div>
+    <div class="form-field"><label>Password</label><input type="password"></div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:16px"><span class="chk">☐ Remember me</span><span>Forgot password?</span></div>
+    <span class="btn btn-primary" style="width:100%;text-align:center;display:block">Log in</span>
+    <div class="divider">or</div>
+    <span class="btn btn-outline" style="width:100%;text-align:center;display:block">Continue with Google</span>
+    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:18px">New here? <a style="color:var(--ink);font-weight:600">Create an account</a></p>
+  </div></div>
+</div>
+
+<!-- ============ CATEGORY ============ -->
+<div class="page" id="page-category">
+  <header class="site"><div class="wrap"><div class="logo">Shopfolk</div><div class="searchbar">Search…</div>
+    <div class="navicons"><span>Login</span><span>Wishlist</span><span>Cart (3)</span></div></div></header>
+  <div class="wrap" style="padding-top:24px">
+    <div class="crumb">Home / Electronics</div>
+    <div class="cat-banner"></div>
+    <div class="section-head"><h2>Electronics <span style="color:var(--muted);font-weight:400;font-size:15px">— 96 items</span></h2>
+      <span style="font-size:13px;border:1px solid var(--line);border-radius:8px;padding:8px 14px">Sort: Newest ▾</span></div>
+    <div class="layout-side">
+      <aside>
+        <div class="filter-group"><h4>Sub-category</h4><label>☐ Audio</label><label>☐ Wearables</label><label>☐ Accessories</label></div>
+        <div class="filter-group"><h4>Price</h4><label>☐ Under ₹3,000</label><label>☐ ₹3,000–₹8,000</label><label>☐ ₹8,000+</label></div>
+        <div class="filter-group"><h4>Brand</h4><label>☐ Northline</label><label>☐ Veyra</label><label>☐ Kaelo</label></div>
+        <div class="filter-group"><h4>Rating</h4><label>☐ 4★ &amp; up</label></div>
+      </aside>
+      <div class="grid" id="category-grid"></div>
+    </div>
+    <span class="btn btn-primary" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:none" id="mobfilter">Filters</span>
+  </div>
+</div>
+
+<!-- ============ ORDER TRACKING ============ -->
+<div class="page" id="page-tracking">
+  <header class="site"><div class="wrap"><div class="logo">Shopfolk</div></div></header>
+  <div class="wrap" style="padding-top:24px;max-width:760px">
+    <div class="crumb">Home / My orders / Track order</div>
+    <h2 style="font-size:22px">Order #SF-118402</h2>
+    <p style="color:var(--muted);font-size:14px;margin:6px 0 10px">Ridge Wool Overcoat · Charcoal, M — arriving Wed, 1 Oct</p>
+    <div class="track-timeline">
+      <div class="track-step done"><div class="track-dot">✓</div>Placed</div>
+      <div class="track-step done"><div class="track-dot">✓</div>Confirmed</div>
+      <div class="track-step done"><div class="track-dot">✓</div>Packed</div>
+      <div class="track-step done"><div class="track-dot">✓</div>Shipped</div>
+      <div class="track-step"><div class="track-dot">●</div>Out for delivery</div>
+      <div class="track-step"><div class="track-dot">○</div>Delivered</div>
+    </div>
+    <div class="summary" style="margin-top:20px">
+      <div class="row"><span>Delivery address</span><span>4B, Rosewood Residency, Meerut</span></div>
+      <div class="row"><span>Estimated delivery</span><span>Wed, 1 Oct</span></div>
+      <div class="row" style="margin-bottom:0"><span>Carrier</span><span>Shopfolk Express</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MY ACCOUNT ============ -->
+<div class="page" id="page-account">
+  <header class="site"><div class="wrap"><div class="logo">Shopfolk</div></div></header>
+  <div class="wrap" style="padding-top:24px 0 60px">
+    <div class="acc-layout">
+      <nav class="acc-nav">
+        <a class="on">My orders</a><a>Profile</a><a>Wishlist</a><a>Saved addresses</a><a>Payment methods</a><a>Notifications</a><a>Change password</a><a>Logout</a>
+      </nav>
+      <div>
+        <h2 style="font-size:20px;margin-bottom:16px">My orders</h2>
+        <div class="order-card">
+          <div><div style="font-weight:600;font-size:14px">#SF-118402 · 3 items</div><div style="color:var(--muted);font-size:13px">Placed 24 Sep · ₹12,797</div></div>
+          <span class="status-pill">Shipped</span>
+          <span class="btn btn-outline" onclick="go('tracking')" style="padding:8px 14px">Track</span>
+        </div>
+        <div class="order-card">
+          <div><div style="font-weight:600;font-size:14px">#SF-117950 · 1 item</div><div style="color:var(--muted);font-size:13px">Placed 12 Sep · ₹3,299</div></div>
+          <span class="status-pill" style="background:var(--muted)">Delivered</span>
+          <span class="btn btn-outline" style="padding:8px 14px">Return</span>
+        </div>
+        <div class="order-card">
+          <div><div style="font-weight:600;font-size:14px">#SF-117310 · 2 items</div><div style="color:var(--muted);font-size:13px">Placed 2 Sep · ₹5,498</div></div>
+          <span class="status-pill" style="background:var(--coral)">Cancelled</span>
+          <span class="btn btn-outline" style="padding:8px 14px">View details</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN DASHBOARD ============ -->
+<div class="page" id="page-admin">
+  <div class="admin-shell">
+    <aside class="admin-side">
+      <div class="logo">Shopfolk</div>
+      <a class="on">Dashboard</a><a>Products</a><a>Orders</a><a>Customers</a><a>Categories</a><a>Coupons</a><a>Reviews</a><a>Settings</a>
+    </aside>
+    <main class="admin-main">
+      <h2 style="font-size:20px;margin-bottom:20px">Dashboard</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="v">₹8.4L</div><div class="l">Total sales — this month</div></div>
+        <div class="kpi"><div class="v">1,204</div><div class="l">Orders</div></div>
+        <div class="kpi"><div class="v">6,830</div><div class="l">Customers</div></div>
+        <div class="kpi"><div class="v">312</div><div class="l">Products listed</div></div>
+      </div>
+      <h3 style="font-size:15px;margin-bottom:12px">Recent orders</h3>
+      <table class="admin-t">
+        <tr><th>Order</th><th>Customer</th><th>Amount</th><th>Status</th></tr>
+        <tr><td>#SF-118402</td><td>Aarav Mehta</td><td>₹12,797</td><td><span class="dot-status">Shipped</span></td></tr>
+        <tr><td>#SF-118399</td><td>Ishita Rao</td><td>₹4,199</td><td><span class="dot-status">Packed</span></td></tr>
+        <tr><td>#SF-118391</td><td>Devansh Nair</td><td>₹9,320</td><td><span class="dot-status">Delivered</span></td></tr>
+        <tr><td>#SF-118388</td><td>Priya Kapoor</td><td>₹2,199</td><td><span class="dot-status" style="color:var(--coral)">Cancelled</span></td></tr>
+      </table>
+    </main>
+  </div>
+</div>
+
+<script>
+const PAGES=['home','shop','category','product','cart','checkout','success','login','tracking','account','admin'];
+const LABELS={home:'Home',shop:'Shop',category:'Category',product:'Product detail',cart:'Cart',checkout:'Checkout',success:'Order success',login:'Login',tracking:'Order tracking',account:'My account',admin:'Admin dashboard'};
+const tabs=document.getElementById('tabs');
+PAGES.forEach(p=>{const b=document.createElement('button');b.textContent=LABELS[p];b.onclick=()=>go(p);b.id='tab-'+p;tabs.appendChild(b);});
+function go(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.querySelectorAll('.switcher button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+p).classList.add('active');
+  window.scrollTo(0,0);
+}
+go('home');
+
+// product data for grids
+const PRODUCTS=[
+ {n:'Ridge Wool Overcoat',p:'₹6,499',w:'₹8,999',c1:'#6C7B74',c2:'#2C332F'},
+ {n:'Aero Wireless Earbuds',p:'₹3,299',c1:'#2F6F62',c2:'#12332C'},
+ {n:'Trail Runner Sneakers',p:'₹4,199',w:'₹5,499',c1:'#E8A33D',c2:'#B97B1F'},
+ {n:'Canvas Weekender Bag',p:'₹2,899',c1:'#E1573F',c2:'#8F2F1F'},
+ {n:'Merino Crew Sweater',p:'₹2,199',c1:'#8A968F',c2:'#3A443F'},
+ {n:'SmartFit Watch Pro',p:'₹7,999',w:'₹9,999',c1:'#1B2A2E',c2:'#3A443F'},
+ {n:'Court Classic Sneakers',p:'₹3,599',c1:'#DBE2DC',c2:'#8A968F'},
+ {n:'Studio Yoga Mat',p:'₹1,299',c1:'#E8A33D',c2:'#2F6F62'}
+];
+function card(pr){
+  return `<div class="card"><div class="swatch" style="--sw1:${pr.c1};--sw2:${pr.c2}"></div>
+    <div class="p-name">${pr.n}</div>
+    <div class="p-meta">★ 4.${2+Math.floor(Math.random()*6)} <span class="price">${pr.p}</span>${pr.w?`<span class="was">${pr.w}</span>`:''}</div></div>`;
+}
+document.getElementById('home-grid').innerHTML=PRODUCTS.slice(0,4).map(card).join('');
+document.getElementById('shop-grid').innerHTML=PRODUCTS.map(card).join('');
+document.getElementById('related-grid').innerHTML=PRODUCTS.slice(2,6).map(card).join('');
+document.getElementById('category-grid').innerHTML=PRODUCTS.slice(1,8).map(card).join('');
+</script>
+</body>
+</html>
