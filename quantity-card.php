@@ -53,7 +53,7 @@
 			              		<input type="number" value="1" min="1" class="form-control w-50 mx-auto">
 			            	</td>
 			            	<td>₹2,499</td>
-			            	<td><button class="btn btn-danger btn-sm">❌</button></td>
+			            	<td><button class="btn btn-white border 	  btn-sm">❌</button></td>
 			          	</tr>
 			          	<tr>
 			            	<td>MRF Genius Bat</td>
@@ -62,7 +62,7 @@
 			              		<input type="number" value="2" min="1" class="form-control w-50 mx-auto">
 			            	</td>
 			            	<td>₹9,998</td>
-			            	<td><button class="btn btn-danger btn-sm">❌</button></td>
+			            	<td><button class="btn btn-white border btn-sm">❌</button></td>
 			          	</tr>
 			        </tbody>
       			</table>
