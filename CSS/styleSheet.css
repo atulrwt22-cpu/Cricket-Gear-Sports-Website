@@ -51,7 +51,7 @@
 
 .nav-icon{
 	font-size: 25px;
-	padding: 0px !ima;
+	padding: 0px 
 }
 
 .list-dropdown{
@@ -143,7 +143,7 @@
 }
 
 .product-description:hover {
-	text-decoration: none; !important;
+	text-decoration: none !important;
 	text-align: center;
 	cursor: pointer;
 }
@@ -652,8 +652,7 @@ h4 {
 .certified-product{
 	list-style: none;
 	font-size: 13PX;
-	color: var(--muted)
-	font-weight: 0;
+	color: var(--muted);
 	text-decoration: none;
 }
 
